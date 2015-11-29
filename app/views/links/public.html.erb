@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="page-header">
+    <h2>This is public page of <%= @username %></h2>
+  </div>
+  <table class="table table-hover table-striped table-responsive">
+		<% serial = 1%>
+		<% @links.each { |l| %>
+		<tr><td><%= serial %></td><td><a href="<%= l %>"><%= l %></a></td></tr>
+	<% serial=serial+1 } %>
+	</table>
+</div>

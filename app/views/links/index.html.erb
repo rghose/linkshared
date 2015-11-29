@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="page-header">
+    <h2>Your links</h2>
+  </div>
+  <div class="well">
+    <a href="/create" class="pull-right btn btn-default">Add new link</a>
+    <h4>Created by you</h4>
+	<table class="table table-striped table-responsive table-hover">
+      <thead><tr><td>Serial</td><td>URL</td></tr></thead>
+      <tbody>
+      <% serial = 0 %>
+        <% Ewarel.where(:user_id => @my_user_id).each do |e| %>
+          <tr>
+            <td><%= serial+=1 %></td>
+            <td><a href="<%= e.url %>"><%= e.url %></a></td>
+            <td><a href="share/<%= e.id %>" class="pull-right btn btn-default">Share this link</a> </td>
+          </tr>
+        <% end %>
+      </tbody>
+	</table>
+  </div>
+  <div>
+    <h4>Shared with you</h4>
+    <table class="table table-striped table-responsive table-hover">
+      <thead><tr><td>Serial</td><td>Shared URL</td></tr></thead>
+      <tbody>
+      <% serial = 0 %>
+      <% FriendLinks.where(:user_id => @my_user_id).each do |e| %>
+        <% url = Ewarel.where(:id => e.link_id).first.url %>
+          <tr><td><%= serial+=1 %></td><td><a href="<%= url %>"><%= url %></a><br/></td></tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

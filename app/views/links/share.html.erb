@@ -1,0 +1,21 @@
+<div style="margin: auto;width: 50%;" class="container">
+<% if @url.nil? %>
+      No such post to share
+<% else %>
+    <div>
+      Share this URL: <a href="<%= @url %>"><%= @url %></a>
+    </div>
+    <div>
+        <form class="form" method="POST">
+          <div class="form-group">
+            <label for="txtEmail">User to share with:</label>
+            <input id="txtEmail" class="form-control" name="friend_email" type="text" placeholder="Enter e-mail" />
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="submit" value="Share" />
+          </div>
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+        </form>
+    </div>
+<% end %>
+</div>

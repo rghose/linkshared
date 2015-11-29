@@ -1,0 +1,17 @@
+<div class="container">
+	<form class="form" method="POST" action="create">
+      <div class="form-group">
+        <label for="txtUrl">URL:</label>
+		<input id="txtUrl" class="form-control" name="url" type="text" placeholder="Enter URL" />
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="is_public"> Public URL
+        </label>
+      </div>
+      <div class="form-group">
+		<input class="form-control" type="submit" value="Create" />
+      </div>
+		<input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+	</form>
+</div>
