@@ -52,3 +52,4 @@ group :development do
 	gem 'autoprefixer-rails'
 end
 
+gem 'rails_12factor', group: :production
