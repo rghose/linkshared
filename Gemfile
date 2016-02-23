@@ -1,11 +1,18 @@
 source 'https://rubygems.org'
 
+gem 'unicorn'
 
+gem 'rack-timeout'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-gem 'postgresql'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+	gem 'rails_12factor'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,5 +58,3 @@ group :development do
 	gem 'bootstrap-sass', '~> 3.2.0'
 	gem 'autoprefixer-rails'
 end
-
-gem 'rails_12factor', group: :production
